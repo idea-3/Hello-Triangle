@@ -23,7 +23,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
     HGLRC hRC2;
     MSG msg;
 
-
     /* register window class */
     wcex.cbSize = sizeof(WNDCLASSEX);
     wcex.style = CS_OWNDC;
