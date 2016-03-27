@@ -16,8 +16,11 @@ int WINAPI WinMain(HINSTANCE hInstance,
 {
     WNDCLASSEX wcex;
     HWND hwnd;
+    HWND hwnd2;
     HDC hDC;
+    HDC hDC2;
     HGLRC hRC;
+    HGLRC hRC2;
     MSG msg;
 
 
@@ -42,7 +45,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
     /* create main window */
     hwnd = CreateWindowEx(0,
                           "GLSample",
-                          "Hello Triangle",
+                          "Hello Triangle Solid",
                           WS_OVERLAPPEDWINDOW,
                           300,
                           0,
@@ -52,11 +55,24 @@ int WINAPI WinMain(HINSTANCE hInstance,
                           NULL,
                           hInstance,
                           NULL);
-
+    hwnd2 = CreateWindowEx(0,
+                          "GLSample",
+                          "Hello Triangle Gradient",
+                          WS_OVERLAPPEDWINDOW,
+                          300,
+                          0,
+                          730,
+                          730,
+                          NULL,
+                          NULL,
+                          hInstance,
+                          NULL);
     ShowWindow(hwnd, nCmdShow);
+    ShowWindow(hwnd2, nCmdShow);
 
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
+    EnableOpenGL(hwnd2, &hDC2, &hRC2);
 
     /* program main loop */
     while (!bQuit)
@@ -68,14 +84,17 @@ int WINAPI WinMain(HINSTANCE hInstance,
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
         }
-            drawHandle(hDC);
+        drawHandle(hDC);
+        drawHandle(hDC2);
     }
 
     /* shutdown OpenGL */
     DisableOpenGL(hwnd, hDC, hRC);
+    DisableOpenGL(hwnd2, hDC2, hRC2);
 
     /* destroy the window explicitly */
     DestroyWindow(hwnd);
+    DestroyWindow(hwnd2);
 
     return msg.wParam;
 }
