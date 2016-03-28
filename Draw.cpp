@@ -50,7 +50,7 @@ void drawHandleGradient(HDC hDC) {
     glVertex3f(0.5, -0.8, 0);
     glEnd();
     glPopMatrix();
-    
+     
     // Segitiga warna gradient merah
     glPushMatrix();
     glShadeModel(GL_SMOOTH);
