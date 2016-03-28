@@ -67,6 +67,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
                           hInstance,
                           NULL);
     ShowWindow(hwnd, nCmdShow);
+    UpdateWindow(hwnd);
     ShowWindow(hwnd2, nCmdShow);
 
     /* enable OpenGL for the window */
@@ -83,7 +84,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
         }
+        wglMakeCurrent(hDC, hRC);
         drawHandle(hDC);
+        wglMakeCurrent(hDC2, hRC2);
         drawHandle(hDC2);
     }
 

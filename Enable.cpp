@@ -29,6 +29,4 @@ void EnableOpenGL(HWND hwnd, HDC* hDC, HGLRC* hRC)
 
     /* create and enable the render context (RC) */
     *hRC = wglCreateContext(*hDC);
-
-    wglMakeCurrent(*hDC, *hRC);
 }
