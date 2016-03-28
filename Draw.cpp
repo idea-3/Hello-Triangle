@@ -1,6 +1,6 @@
 #include "Draw.h"
 
-void drawHandle(HDC hDC) {
+void drawHandleSolid(HDC hDC) {
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
@@ -34,6 +34,10 @@ void drawHandle(HDC hDC) {
     glEnd();
     glPopMatrix();
 
+    SwapBuffers(hDC);
+}
+
+void drawHandleGradient(HDC hDC) {
     // Segitiga warna gradient merah, hijau, biru
     glPushMatrix();
     glShadeModel(GL_SMOOTH);
@@ -46,7 +50,7 @@ void drawHandle(HDC hDC) {
     glVertex3f(0.5, -0.8, 0);
     glEnd();
     glPopMatrix();
-
+    
     // Segitiga warna gradient merah
     glPushMatrix();
     glShadeModel(GL_SMOOTH);
@@ -87,5 +91,4 @@ void drawHandle(HDC hDC) {
     glPopMatrix();
 
     SwapBuffers(hDC);
-
 }

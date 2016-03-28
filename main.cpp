@@ -85,9 +85,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
                 DispatchMessage(&msg);
         }
         wglMakeCurrent(hDC, hRC);
-        drawHandle(hDC);
+        drawHandleSolid(hDC);
         wglMakeCurrent(hDC2, hRC2);
-        drawHandle(hDC2);
+        drawHandleGradient(hDC2);
     }
 
     /* shutdown OpenGL */
